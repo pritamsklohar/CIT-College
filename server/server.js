@@ -64,13 +64,15 @@ app.use('/api/board-members', require('./routes/boardMemberRoutes'));
 app.use('/api/recognitions', require('./routes/recognitionRoutes'));
 app.use('/api/syllabus', require('./routes/syllabusRoutes'));
 
-// Serve frontend in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/dist')));
+// Serve frontend in production (only if client/dist exists — for single-service deploys)
+const fs = require('fs');
+const distPath = path.join(__dirname, '../client/dist');
+if (process.env.NODE_ENV === 'production' && fs.existsSync(distPath)) {
+  app.use(express.static(distPath));
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));
+    res.sendFile(path.resolve(distPath, 'index.html'));
   });
-} else {
+} else if (process.env.NODE_ENV !== 'production') {
   app.get('/', (req, res) => {
     res.send('API is running. Please set NODE_ENV to production to serve the frontend.');
   });
