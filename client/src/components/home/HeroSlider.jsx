@@ -56,10 +56,10 @@ const HeroSlider = () => {
             >
               <div className="absolute inset-0 bg-black/40"></div>
               <div className="relative text-center text-white px-4">
-                <h2 className="hero-anim text-3xl md:text-6xl font-bold mb-4 opacity-0">{slide.title}</h2>
-                <p className="hero-anim text-lg md:text-2xl opacity-0">{slide.subtitle}</p>
+                <h2 className="hero-anim text-2xl md:text-6xl font-bold mb-2 md:mb-4 opacity-0">{slide.title}</h2>
+                <p className="hero-anim text-sm md:text-2xl opacity-0">{slide.subtitle}</p>
                 {slide.link && (
-                  <a href={slide.link} className="hero-anim mt-8 inline-block bg-accent text-white px-10 py-4 rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-primary transition shadow-2xl opacity-0">
+                  <a href={slide.link} className="hero-anim mt-4 md:mt-8 inline-block bg-accent text-white px-6 py-2.5 md:px-10 md:py-4 text-xs md:text-sm rounded-full font-black uppercase tracking-widest hover:bg-white hover:text-primary transition shadow-2xl opacity-0">
                     {slide.buttonText || 'Explore More'}
                   </a>
                 )}

@@ -44,16 +44,16 @@ const Contact = () => {
 
   return (
     <div className="bg-white">
-      <div className="bg-primary py-24 text-center text-white relative">
-         <h1 className="text-4xl md:text-5xl font-black mb-4 uppercase">CONTACT US</h1>
-         <p className="text-accent font-bold tracking-widest uppercase text-sm">Reach Out / Contact</p>
+      <div className="bg-primary py-12 md:py-24 text-center text-white relative">
+         <h1 className="text-2xl md:text-5xl font-black mb-2 md:mb-4 uppercase">CONTACT US</h1>
+         <p className="text-accent font-bold tracking-widest uppercase text-xs md:text-sm">Reach Out / Contact</p>
       </div>
 
-      <div className="container mx-auto px-4 py-20">
-        <div className="flex flex-col lg:flex-row gap-16">
+      <div className="container mx-auto px-4 py-10 md:py-20">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
           {/* Form */}
-          <div className="lg:w-3/5 bg-gray-50 p-8 md:p-12 rounded-3xl shadow-xl">
-             <h2 className="text-3xl font-black text-primary mb-8">Send Us A <span className="text-accent">Message</span></h2>
+          <div className="lg:w-3/5 bg-gray-50 p-4 md:p-12 rounded-3xl shadow-xl">
+             <h2 className="text-xl md:text-3xl font-black text-primary mb-4 md:mb-8">Send Us A <span className="text-accent">Message</span></h2>
              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-bold text-gray-700 mb-2">Full Name *</label>
@@ -100,10 +100,10 @@ const Contact = () => {
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                   ></textarea>
                 </div>
-                <div className="md:col-span-2 bg-white p-6 rounded-2xl border-2 border-gray-100 flex flex-col md:flex-row items-center gap-6">
-                   <div className="flex items-center gap-4 shrink-0">
-                      <span className="text-sm font-black text-primary uppercase tracking-widest">Verify You Are Human:</span>
-                      <span className="bg-accent text-white px-4 py-2 rounded-lg font-black text-xl shadow-inner">{captcha.q} = ?</span>
+                <div className="md:col-span-2 bg-white p-4 md:p-6 rounded-2xl border-2 border-gray-100 flex flex-col md:flex-row items-center gap-4 md:gap-6">
+                   <div className="flex items-center gap-3 md:gap-4 shrink-0">
+                      <span className="text-xs md:text-sm font-black text-primary uppercase tracking-widest">Verify You Are Human:</span>
+                      <span className="bg-accent text-white px-3 py-1.5 md:px-4 md:py-2 rounded-lg font-black text-lg md:text-xl shadow-inner">{captcha.q} = ?</span>
                    </div>
                    <input 
                      type="number" required
@@ -115,7 +115,7 @@ const Contact = () => {
                 </div>
                 <button 
                   disabled={loading}
-                  className="bg-primary text-white px-10 py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-accent transition shadow-lg w-full md:w-auto"
+                  className="bg-primary text-white px-6 py-3 md:px-10 md:py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:bg-accent transition shadow-lg w-full md:w-auto text-sm md:text-base"
                 >
                   {loading ? 'Sending...' : <>Send Message <FaPaperPlane /></>}
                 </button>
@@ -124,20 +124,20 @@ const Contact = () => {
 
           {/* Info */}
           <div className="lg:w-2/5 space-y-8">
-             <div className="bg-primary p-10 rounded-3xl text-white shadow-2xl relative overflow-hidden group">
+             <div className="bg-primary p-6 md:p-10 rounded-3xl text-white shadow-2xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-5 -translate-y-1/2 translate-x-1/2 rounded-full group-hover:scale-150 transition duration-500"></div>
-                <h3 className="text-2xl font-bold mb-8 flex items-center gap-2">
+                <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-8 flex items-center gap-2">
                   <span className="w-1.5 h-6 bg-accent inline-block"></span> Contact Information
                 </h3>
-                <div className="space-y-8">
-                   <div className="flex items-start gap-5">
+                <div className="space-y-4 md:space-y-8">
+                   <div className="flex items-start gap-3 md:gap-5">
                       <div className="bg-white bg-opacity-10 p-4 rounded-2xl text-accent text-xl"><FaMapMarkerAlt /></div>
                       <div>
                          <h5 className="font-bold text-accent uppercase tracking-widest text-xs mb-1">Address</h5>
                          <p className="text-sm opacity-90">Village Danvav, Mt. Road, Abu Road, Dist. Sirohi, Rajasthan - 307510</p>
                       </div>
                    </div>
-                   <div className="flex items-start gap-5">
+                   <div className="flex items-start gap-3 md:gap-5">
                       <div className="bg-white bg-opacity-10 p-4 rounded-2xl text-accent text-xl"><FaPhoneAlt /></div>
                       <div>
                          <h5 className="font-bold text-accent uppercase tracking-widest text-xs mb-1">Call Us</h5>
@@ -145,7 +145,7 @@ const Contact = () => {
                          <p className="text-sm opacity-90">+91 95880 13851</p>
                       </div>
                    </div>
-                   <div className="flex items-start gap-5">
+                   <div className="flex items-start gap-3 md:gap-5">
                       <div className="bg-white bg-opacity-10 p-4 rounded-2xl text-accent text-xl"><FaEnvelope /></div>
                       <div>
                          <h5 className="font-bold text-accent uppercase tracking-widest text-xs mb-1">Email</h5>

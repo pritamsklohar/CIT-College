@@ -111,7 +111,7 @@ const ManageStaticPages = () => {
             <label className="block text-xs font-black text-gray-400 uppercase mb-2">Page Featured Image (Optional)</label>
             <div className="flex items-center gap-4">
                {currentImageUrl && (
-                 <img src={currentImageUrl.startsWith('http') ? currentImageUrl : `http://localhost:5000${currentImageUrl}`} alt="Current" className="w-16 h-16 object-cover rounded-lg border" />
+                 <img src={currentImageUrl} alt="Current" className="w-16 h-16 object-cover rounded-lg border" />
                )}
                <input
                  key={`file-input-${slug}`}

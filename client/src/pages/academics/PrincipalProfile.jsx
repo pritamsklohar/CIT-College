@@ -24,11 +24,11 @@ const PrincipalProfile = () => {
                <motion.div
                   initial={{ opacity: 0, x: 30 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="lg:w-1/3 w-full sticky top-24"
+                  className="lg:w-1/3 w-full lg:sticky lg:top-24 relative"
                >
                   <div className="relative rounded-3xl overflow-hidden shadow-2xl border-b-8 border-primary">
                      <img 
-                       src={imageUrl ? (imageUrl.startsWith('http') ? imageUrl : `http://localhost:5000${imageUrl}`) : "https://citabu.ac.in/assets/images/gallery/principal.jpeg"} 
+                       src={imageUrl ? imageUrl : "https://citabu.ac.in/assets/images/gallery/principal.jpeg"} 
                        alt="Principal" 
                        onError={(e) => { 
                          e.target.onerror = null; 

@@ -27,18 +27,18 @@ const Admission = () => {
       <div className="bg-white">
          <PageBanner title="Admission" breadcrumb="Home / Admission" />
 
-         <div className="container mx-auto px-4 py-20">
-            <div className="flex flex-col lg:flex-row gap-16">
+         <div className="container mx-auto px-4 py-10 md:py-20">
+            <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
                {/* Main Info */}
                <div className="lg:w-2/3">
                   <div
-                     className="rich-text-content prose prose-lg max-w-none"
+                     className="rich-text-content prose prose-sm md:prose-lg max-w-none"
                      dangerouslySetInnerHTML={{ __html: data.content || '<p>Loading admission information...</p>' }}
                   />
 
                   {/* Dynamic Admission Tables */}
                   {data.seatMatrix.length > 0 && (
-                  <div className="mt-12 bg-gray-50 p-8 rounded-3xl border overflow-x-auto">
+                  <div className="mt-6 md:mt-12 bg-gray-50 p-4 md:p-8 rounded-3xl border overflow-x-auto">
                      <h3 className="text-2xl font-black text-primary mb-6 uppercase tracking-wider">Courses & Seat Matrix</h3>
                      <table className="w-full text-left border-collapse min-w-[700px]">
                         <thead>
@@ -89,7 +89,7 @@ const Admission = () => {
                <div className="lg:w-1/3">
                   <div className="space-y-6 sticky top-24">
                      {data.applyOnlineUrl && (
-                     <a href={data.applyOnlineUrl} target="_blank" rel="noreferrer" className="block bg-accent text-white p-8 rounded-3xl text-center shadow-xl hover:bg-primary transition-all group">
+                     <a href={data.applyOnlineUrl} target="_blank" rel="noreferrer" className="block bg-accent text-white p-6 md:p-8 rounded-3xl text-center shadow-xl hover:bg-primary transition-all group">
                         <div className="text-4xl mb-3 group-hover:scale-110 transition">📝</div>
                         <h4 className="text-2xl font-black uppercase">APPLY ONLINE</h4>
                         <p className="opacity-80 text-sm font-bold mt-1 uppercase">Direct Admission Form</p>

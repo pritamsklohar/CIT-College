@@ -33,7 +33,7 @@ const seedRealData = async () => {
     }
 
     // 3. Institutional Settings
-    await Settings.findOneAndUpdate({}, {
+    await Settings.findOneAndUpdate({}, { $set: {
       siteName: "Chartered Institute of Technology",
       email: "citaburoad@gmail.com",
       phone1: "+91 99505 30301",
@@ -48,16 +48,16 @@ const seedRealData = async () => {
       admissionFormUrl: "https://forms.gle/KT257DVQEjc5HBTh9",
       brochureUrl: "https://citabu.ac.in/assets/pdf/CIT-COLLEGE-BROCHURE.pdf.pdf",
       trainingLetterUrl: "https://citabu.ac.in/assets/pdf/Training-Letter-2026.pdf"
-    }, { upsert: true });
+    }}, { upsert: true });
     console.log('Institutional Settings updated.');
 
     // 4. College Statistics
-    await Stats.findOneAndUpdate({}, {
+    await Stats.findOneAndUpdate({}, { $set: {
       students: 2100,
       faculty: 150,
       placements: 1250,
       partners: 100
-    }, { upsert: true });
+    }}, { upsert: true });
     console.log('College Stats updated.');
 
     // 5. Vision & Mission (Static Pages)
@@ -72,22 +72,22 @@ const seedRealData = async () => {
         <li>To instill moral values and professional ethics.</li>
       </ul>
     `;
-    await StaticPage.findOneAndUpdate({ slug: 'vision-mission' }, {
+    await StaticPage.findOneAndUpdate({ slug: 'vision-mission' }, { $set: {
       title: "Vision & Mission",
       content: visionContent,
       slug: 'vision-mission'
-    }, { upsert: true });
+    }}, { upsert: true });
 
     // 6. Institute About
     const aboutContent = `
       <p>Chartered Institute of Technology (CIT), Abu Road, is a premier technical institution in Rajasthan, established with the aim of providing world-class engineering education. Affiliated with Bikaner Technical University (BTU) and Rajasthan Technical University (RTU), CIT has consistently maintained a record of academic excellence and high placements.</p>
       <p class="mt-4">Located in the serene surroundings of Mt. Road, Abu Road, our campus provides the perfect environment for learning and personal growth. With over 18 years of excellence, we have nurtured thousands of engineering professionals who are now leading in top global companies.</p>
     `;
-    await StaticPage.findOneAndUpdate({ slug: 'institute' }, {
+    await StaticPage.findOneAndUpdate({ slug: 'institute' }, { $set: {
       title: "About The Institute",
       content: aboutContent,
       slug: 'institute'
-    }, { upsert: true });
+    }}, { upsert: true });
 
     // 7. Chairman Profile
     const chairmanContent = `
@@ -95,11 +95,11 @@ const seedRealData = async () => {
       <p class="mt-4">As the Chairman, I am proud to see our students achieving great heights in their careers. We remain committed to providing the best resources, faculty, and industry connect to ensure your success.</p>
       <p class="mt-6 font-bold text-primary">Sh. Kishore Gandhi<br/>Chairman & Managing Director</p>
     `;
-    await StaticPage.findOneAndUpdate({ slug: 'chairman-message' }, {
+    await StaticPage.findOneAndUpdate({ slug: 'chairman-message' }, { $set: {
       title: "Chairman's Message",
       content: chairmanContent,
       slug: 'chairman-message'
-    }, { upsert: true });
+    }}, { upsert: true });
 
     // 8. Principal Profile
     const principalContent = `
@@ -107,11 +107,11 @@ const seedRealData = async () => {
       <p class="mt-4">We take pride in our dedicated faculty and advanced laboratory facilities that provide students with a strong foundation in engineering principles and practical applications.</p>
       <p class="mt-6 font-bold text-primary">Dr. Rajnesh Yadav<br/>Principal, CIT Abu Road</p>
     `;
-    await StaticPage.findOneAndUpdate({ slug: 'principal-profile' }, {
+    await StaticPage.findOneAndUpdate({ slug: 'principal-profile' }, { $set: {
       title: "Principal's Profile",
       content: principalContent,
       slug: 'principal-profile'
-    }, { upsert: true });
+    }}, { upsert: true });
 
     // 9. Faculty Seeding (Fresh batch)
     const facultyList = [
@@ -122,7 +122,7 @@ const seedRealData = async () => {
       { name: "Mr. Chetan Kumrawat", designation: "Assistant Professor", department: "Mechanical Engineering", qualification: "M.Tech., B.Tech.", email: "chetan.k@citabu.ac.in", isActive: true }
     ];
     for (const f of facultyList) {
-      await Faculty.findOneAndUpdate({ name: f.name }, f, { upsert: true });
+      await Faculty.findOneAndUpdate({ email: f.email }, { $set: f }, { upsert: true });
     }
 
     // 10. Latest Notices
@@ -142,7 +142,7 @@ const seedRealData = async () => {
       { title: "State of the Art Labs", subtitle: "Modern infrastructure for practical learning", imageUrl: "https://citabu.ac.in/assets/img/slider/slider-2.jpg", link: "/academics/departments/cs", buttonText: "Explore Courses", order: 2 }
     ];
     for (const s of slides) {
-      await HeroSlide.findOneAndUpdate({ title: s.title }, s, { upsert: true });
+      await HeroSlide.findOneAndUpdate({ title: s.title }, { $set: s }, { upsert: true });
     }
 
     console.log('Seeding of real-world data completed successfully!');

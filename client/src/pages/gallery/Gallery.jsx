@@ -23,14 +23,14 @@ const Gallery = () => {
     <div className="bg-white min-h-screen">
       <PageBanner title="Photo Gallery" breadcrumb="Home / Media / Gallery" />
 
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-10 md:py-20">
         {/* Category Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-16">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 md:mb-16">
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setCategory(cat)}
-              className={`px-8 py-3 rounded-full font-bold uppercase tracking-widest text-xs transition-all ${
+              className={`px-4 py-2 md:px-8 md:py-3 rounded-full font-bold uppercase tracking-widest text-[10px] md:text-xs transition-all ${
                 category === cat ? 'bg-accent text-white shadow-xl scale-105' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
               }`}
             >
@@ -41,13 +41,13 @@ const Gallery = () => {
 
         {/* Gallery Grid */}
         {loading ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
              {[1,2,3,4,5,6,7,8].map(i => <div key={i} className="aspect-square bg-gray-100 animate-pulse rounded-3xl"></div>)}
           </div>
         ) : (
           <motion.div 
             layout
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6"
           >
             <AnimatePresence>
               {images.map((img, index) => (
@@ -65,7 +65,7 @@ const Gallery = () => {
                      alt={img.title || 'CIT Gallery'} 
                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125"
                    />
-                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-500 flex flex-col justify-end p-8">
+                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/40 transition-all duration-500 flex flex-col justify-end p-4 md:p-8">
                       <div className="translate-y-10 group-hover:translate-y-0 transition-all duration-500 opacity-0 group-hover:opacity-100">
                          <span className="bg-accent text-white px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-2 inline-block">
                             {img.category}

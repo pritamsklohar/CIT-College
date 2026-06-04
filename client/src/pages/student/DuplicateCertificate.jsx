@@ -42,48 +42,48 @@ const DuplicateCertificate = () => {
   const HeroIcon = getIcon(pageData.heroIcon);
 
   return (
-    <div className="bg-gray-50 min-h-screen pb-20">
+    <div className="bg-gray-50 min-h-screen pb-10 md:pb-20">
       <PageBanner title={pageData.pageTitle} breadcrumb={`Student Corner / ${pageData.pageTitle}`} />
 
-      <div className="container mx-auto px-4 py-16 max-w-5xl">
+      <div className="container mx-auto px-4 py-8 md:py-16 max-w-5xl">
         <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
           
-          <div className="bg-primary p-8 md:p-12 text-white relative overflow-hidden">
-             <div className="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4 text-9xl">
+          <div className="bg-primary p-6 md:p-12 text-white relative overflow-hidden">
+             <div className="absolute top-0 right-0 opacity-10 transform translate-x-1/4 -translate-y-1/4 text-7xl md:text-9xl">
                {HeroIcon}
              </div>
-             <h2 className="text-3xl md:text-4xl font-black mb-4 uppercase tracking-widest relative z-10">{pageData.pageTitle}</h2>
-             <p className="text-lg text-gray-200 font-medium relative z-10 max-w-2xl">
+             <h2 className="text-xl md:text-4xl font-black mb-3 md:mb-4 uppercase tracking-widest relative z-10">{pageData.pageTitle}</h2>
+             <p className="text-sm md:text-lg text-gray-200 font-medium relative z-10 max-w-2xl">
                {pageData.pageSubtitle}
              </p>
           </div>
 
-          <div className="p-8 md:p-12">
-             <div className={`mb-10 ${theme.bg} border-l-4 ${theme.border} p-6 rounded-r-xl shadow-sm`}>
-                <div className="flex gap-4 items-start">
-                   <div className={`${theme.icon} text-2xl mt-1 shrink-0`}><FaIcons.FaExclamationTriangle /></div>
+          <div className="p-4 md:p-12">
+             <div className={`mb-6 md:mb-10 ${theme.bg} border-l-4 ${theme.border} p-4 md:p-6 rounded-r-xl shadow-sm`}>
+                <div className="flex gap-3 md:gap-4 items-start">
+                   <div className={`${theme.icon} text-xl md:text-2xl mt-1 shrink-0`}><FaIcons.FaExclamationTriangle /></div>
                    <div>
-                      <h4 className={`font-bold ${theme.textTitle} text-lg mb-1`}>{pageData.noticeTitle}</h4>
-                      <p className={`${theme.textBody}`}>{pageData.noticeContent}</p>
+                      <h4 className={`font-bold ${theme.textTitle} text-base md:text-lg mb-1`}>{pageData.noticeTitle}</h4>
+                      <p className={`text-xs md:text-sm ${theme.textBody}`}>{pageData.noticeContent}</p>
                    </div>
                 </div>
              </div>
 
-             <div className="grid md:grid-cols-2 gap-12">
+             <div className="grid md:grid-cols-2 gap-6 md:gap-12">
                 <div>
-                   <h3 className="text-2xl font-black text-primary mb-6 flex items-center gap-3">
-                     <span className="bg-accent text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg"><FaIcons.FaFileAlt className="text-xl" /></span>
+                   <h3 className="text-lg md:text-2xl font-black text-primary mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
+                     <span className="bg-accent text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shadow-lg"><FaIcons.FaFileAlt className="text-base md:text-xl" /></span>
                      Required Documents
                    </h3>
-                   <ul className="space-y-4">
+                   <ul className="space-y-3 md:space-y-4">
                       {pageData.documents.map((doc, idx) => (
-                        <li key={idx} className="flex gap-4 items-start">
-                           <div className="bg-green-100 text-green-600 p-2 rounded-lg shrink-0">
+                        <li key={idx} className="flex gap-3 md:gap-4 items-start">
+                           <div className="bg-green-100 text-green-600 p-2 rounded-lg shrink-0 text-sm md:text-base">
                              {getIcon(doc.icon)}
                            </div>
                            <div>
-                              <span className="font-bold text-gray-800 block">{doc.title}</span>
-                              <span className="text-sm text-gray-500">{doc.desc}</span>
+                              <span className="font-bold text-gray-800 text-sm md:text-base block">{doc.title}</span>
+                              <span className="text-xs text-gray-500">{doc.desc}</span>
                            </div>
                         </li>
                       ))}
@@ -91,48 +91,48 @@ const DuplicateCertificate = () => {
                 </div>
 
                 <div>
-                   <h3 className="text-2xl font-black text-primary mb-6 flex items-center gap-3">
-                     <span className="bg-accent text-white w-10 h-10 rounded-full flex items-center justify-center shadow-lg"><FaIcons.FaMoneyCheckAlt className="text-xl" /></span>
+                   <h3 className="text-lg md:text-2xl font-black text-primary mb-4 md:mb-6 flex items-center gap-2 md:gap-3">
+                     <span className="bg-accent text-white w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center shadow-lg"><FaIcons.FaMoneyCheckAlt className="text-base md:text-xl" /></span>
                      {pageData.feesTitle}
                    </h3>
-                   <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm mb-6">
+                   <div className="bg-gray-50 p-4 md:p-6 rounded-2xl border border-gray-100 shadow-sm mb-6">
                       {pageData.fees.map((fee, idx) => (
-                        <div key={idx} className="flex justify-between items-center mb-4 border-b pb-4 last:border-0 last:pb-0">
-                           <span className="font-bold text-gray-700">{fee.label}</span>
-                           <span className="font-black text-accent text-xl">{fee.amount}</span>
+                        <div key={idx} className="flex justify-between items-center mb-3 md:mb-4 border-b pb-3 md:pb-4 last:border-0 last:pb-0">
+                           <span className="font-bold text-gray-700 text-xs md:text-sm">{fee.label}</span>
+                           <span className="font-black text-accent text-base md:text-xl">{fee.amount}</span>
                         </div>
                       ))}
                       {pageData.feeNote && (
-                        <p className="text-xs text-gray-500 italic mt-4 border-t pt-4">{pageData.feeNote}</p>
+                        <p className="text-[10px] md:text-xs text-gray-500 italic mt-3 md:mt-4 border-t pt-3 md:pt-4">{pageData.feeNote}</p>
                       )}
                    </div>
                 </div>
              </div>
 
-             <div className="mt-12 pt-12 border-t border-gray-100">
-                <h3 className="text-2xl font-black text-primary mb-8 text-center uppercase tracking-widest">{pageData.stepsTitle}</h3>
+             <div className="mt-8 pt-8 md:mt-12 md:pt-12 border-t border-gray-100">
+                <h3 className="text-lg md:text-2xl font-black text-primary mb-6 md:mb-8 text-center uppercase tracking-widest">{pageData.stepsTitle}</h3>
                 
-                <div className={`grid gap-6 relative grid-cols-1 md:grid-cols-${Math.min(pageData.steps.length, 4)}`}>
+                <div className={`grid gap-4 md:gap-6 relative grid-cols-1 md:grid-cols-${Math.min(pageData.steps.length, 4)}`}>
                    <div className="hidden md:block absolute top-8 left-[10%] right-[10%] h-1 bg-gray-200 z-0"></div>
                    
                    {pageData.steps.map((item, idx) => (
-                     <div key={idx} className="relative z-10 flex flex-col items-center text-center">
-                        <div className="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-black shadow-xl mb-4 border-4 border-white">
-                           {idx + 1}
-                        </div>
-                        <h4 className="font-bold text-gray-800 mb-2">{item.title}</h4>
-                        <p className="text-sm text-gray-500">{item.desc}</p>
-                     </div>
+                      <div key={idx} className="relative z-10 flex flex-col items-center text-center">
+                         <div className="w-12 h-12 md:w-16 md:h-16 bg-primary text-white rounded-full flex items-center justify-center text-lg md:text-2xl font-black shadow-xl mb-3 md:mb-4 border-4 border-white">
+                            {idx + 1}
+                         </div>
+                         <h4 className="font-bold text-gray-800 text-sm md:text-base mb-1.5 md:mb-2">{item.title}</h4>
+                         <p className="text-xs text-gray-500">{item.desc}</p>
+                      </div>
                    ))}
                 </div>
              </div>
 
              {pageData.downloadLink && (
-               <div className="mt-16 text-center">
-                  <a href={pageData.downloadLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 bg-accent text-white px-8 py-4 rounded-full font-black uppercase tracking-widest hover:bg-orange-600 transition shadow-xl hover:-translate-y-1">
-                     <FaIcons.FaDownload /> BTU Forms Portal
-                  </a>
-               </div>
+                <div className="mt-8 md:mt-16 text-center">
+                   <a href={pageData.downloadLink} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2.5 md:gap-3 bg-accent text-white px-6 py-3 md:px-8 md:py-4 rounded-full font-black uppercase tracking-widest hover:bg-orange-600 transition shadow-xl hover:-translate-y-1 text-xs md:text-base">
+                      <FaIcons.FaDownload /> BTU Forms Portal
+                   </a>
+                </div>
              )}
 
           </div>

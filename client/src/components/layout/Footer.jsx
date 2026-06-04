@@ -22,11 +22,11 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#0a0a0a] text-gray-300">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="container mx-auto px-4 py-8 md:py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* About Column */}
           <div>
-            <img src={settings?.logoUrl || '/logo-cit.png'} alt="CIT Logo" className="h-20 mb-6 brightness-80 " />
+            <img src={settings?.logoUrl || '/logo-cit.png'} alt="CIT Logo" className="h-16 md:h-20 mb-4 md:mb-6 brightness-80 " />
             <p className="text-sm leading-relaxed mb-6 opacity-70">
               Chartered Institute of Technology (CIT), Abu Road, Rajasthan – an engineering college affiliated to BTU/RTU and approved by AICTE. Committed to excellence in technical education.
             </p>
@@ -40,7 +40,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-bold text-xl mb-8 flex items-center gap-2">
+            <h4 className="text-white font-bold text-lg md:text-xl mb-4 md:mb-8 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-accent inline-block"></span> Quick Links
             </h4>
             <ul className="space-y-3">
@@ -56,10 +56,10 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="lg:col-span-2">
-            <h4 className="text-white font-bold text-xl mb-8 flex items-center gap-2">
+            <h4 className="text-white font-bold text-lg md:text-xl mb-4 md:mb-8 flex items-center gap-2">
               <span className="w-1.5 h-6 bg-accent inline-block"></span> Get In Touch
             </h4>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-4 md:gap-8">
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
                   <div className="bg-accent text-white p-3 rounded-lg"><FaMapMarkerAlt /></div>
@@ -74,14 +74,14 @@ const Footer = () => {
                 <div className="flex items-start gap-4">
                   <div className="bg-accent text-white p-3 rounded-lg"><FaPhone /></div>
                   <div className="text-sm">
-                    <p>{settings?.phone1 || '+91 99505 30301'}</p>
-                    <p>{settings?.phone2 || '+91 95880 13851'}</p>
+                     <p>{settings?.phone1 || '+91 99505 30301'}</p>
+                     <p>{settings?.phone2 || '+91 95880 13851'}</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-10 pt-10 border-t border-white border-opacity-10 text-center md:text-left">
+            <div className="mt-6 pt-6 md:mt-10 md:pt-10 border-t border-white border-opacity-10 text-center md:text-left">
               <h5 className="text-white font-bold mb-4">Location Map</h5>
               <div className="rounded-xl overflow-hidden h-40 w-full grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition duration-500 shadow-2xl border border-white border-opacity-10">
                 <iframe

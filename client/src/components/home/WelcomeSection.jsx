@@ -50,22 +50,22 @@ const WelcomeSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gray-50 overflow-hidden">
+    <section ref={sectionRef} className="py-10 md:py-20 bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+        <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
           <div className="lg:w-1/2 welcome-left">
             <h4 className="text-accent font-bold uppercase tracking-widest mb-2">Since 2009</h4>
-            <h2 className="text-3xl md:text-5xl font-black text-primary mb-6 leading-tight">
+            <h2 className="text-2xl md:text-5xl font-black text-primary mb-4 md:mb-6 leading-tight">
               Welcome To <br />
               <span className="text-accent">Chartered Institute</span> of Technology
             </h2>
             <div 
-              className="text-gray-600 leading-relaxed mb-8 text-lg line-clamp-6"
+              className="text-gray-600 leading-relaxed mb-4 md:mb-8 text-sm md:text-lg line-clamp-6"
               dangerouslySetInnerHTML={{ __html: content }}
             />
             <Link 
               to="/about/institute" 
-              className="inline-block bg-primary text-white px-8 py-3 rounded-lg font-bold hover:bg-accent transition-all transform hover:-translate-y-1 shadow-lg"
+              className="inline-block bg-primary text-white px-6 py-2.5 md:px-8 md:py-3 text-sm md:text-base rounded-lg font-bold hover:bg-accent transition-all transform hover:-translate-y-1 shadow-lg"
             >
               Learn More About Us
             </Link>

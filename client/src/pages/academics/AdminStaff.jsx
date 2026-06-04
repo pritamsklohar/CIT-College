@@ -18,34 +18,36 @@ const AdminStaff = () => {
   }, []);
 
   const StaffTable = ({ title, staff }) => (
-    <div className="mb-16">
-      <h3 className="text-2xl font-black text-primary uppercase mb-6 border-b-2 border-accent pb-2 inline-block">
+    <div className="mb-12 md:mb-16">
+      <h3 className="text-xl md:text-2xl font-black text-primary uppercase mb-4 md:mb-6 border-b-2 border-accent pb-2 inline-block">
         {title}
       </h3>
       <div className="bg-white rounded-3xl shadow-lg border border-gray-100 overflow-hidden">
-        <div className="overflow-x-auto">
+        <div className="w-full overflow-x-auto max-w-full">
           <table className="w-full text-left border-collapse">
             <thead>
               <tr className="bg-blue-50/50">
-                <th className="py-5 px-6 font-black text-gray-400 uppercase tracking-widest text-xs border-b">S.No.</th>
-                <th className="py-5 px-6 font-black text-gray-400 uppercase tracking-widest text-xs border-b">Photo</th>
-                <th className="py-5 px-6 font-black text-gray-400 uppercase tracking-widest text-xs border-b">Name</th>
-                <th className="py-5 px-6 font-black text-gray-400 uppercase tracking-widest text-xs border-b">Designation</th>
-                <th className="py-5 px-6 font-black text-gray-400 uppercase tracking-widest text-xs border-b">Email</th>
+                <th className="py-3 px-3 md:py-5 md:px-6 font-black text-gray-400 uppercase tracking-widest text-[10px] md:text-xs border-b">S.No.</th>
+                <th className="py-3 px-3 md:py-5 md:px-6 font-black text-gray-400 uppercase tracking-widest text-[10px] md:text-xs border-b">Photo</th>
+                <th className="py-3 px-3 md:py-5 md:px-6 font-black text-gray-400 uppercase tracking-widest text-[10px] md:text-xs border-b">Name</th>
+                <th className="py-3 px-3 md:py-5 md:px-6 font-black text-gray-400 uppercase tracking-widest text-[10px] md:text-xs border-b">Designation</th>
+                <th className="py-3 px-3 md:py-5 md:px-6 font-black text-gray-400 uppercase tracking-widest text-[10px] md:text-xs border-b">Email</th>
               </tr>
             </thead>
             <tbody>
               {staff.map((member, index) => (
                 <tr key={member._id} className="hover:bg-gray-50 transition duration-300 group">
-                  <td className="py-4 px-6 border-b border-gray-50 text-gray-400 font-bold">{index + 1}</td>
-                  <td className="py-4 px-6 border-b border-gray-50">
-                    <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-100 border-2 border-white shadow-sm group-hover:border-accent transition">
+                  <td className="py-3 px-3 md:py-4 md:px-6 border-b border-gray-50 text-gray-400 font-bold text-xs md:text-base">{index + 1}</td>
+                  <td className="py-3 px-3 md:py-4 md:px-6 border-b border-gray-50">
+                    <div className="w-8 h-8 md:w-12 md:h-12 rounded-full overflow-hidden bg-gray-100 border-2 border-white shadow-sm group-hover:border-accent transition">
                       <img src={member.imageUrl || `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=183358&color=fff`} alt={member.name} className="w-full h-full object-cover" />
                     </div>
                   </td>
-                  <td className="py-4 px-6 border-b border-gray-50 font-bold text-primary">{member.name}</td>
-                  <td className="py-4 px-6 border-b border-gray-50 text-gray-600 font-semibold">{member.designation}</td>
-                  <td className="py-4 px-6 border-b border-gray-50 text-accent font-medium text-sm"><a href={`mailto:${member.email}`}>{member.email}</a></td>
+                  <td className="py-3 px-3 md:py-4 md:px-6 border-b border-gray-50 font-bold text-primary text-xs md:text-base">{member.name}</td>
+                  <td className="py-3 px-3 md:py-4 md:px-6 border-b border-gray-50 text-gray-600 font-semibold text-xs md:text-base">{member.designation}</td>
+                  <td className="py-3 px-3 md:py-4 md:px-6 border-b border-gray-50 text-accent font-medium text-xs md:text-sm">
+                    <a href={`mailto:${member.email}`} className="truncate max-w-[120px] sm:max-w-none block hover:underline" title={member.email}>{member.email}</a>
+                  </td>
                 </tr>
               ))}
               {staff.length === 0 && (
@@ -64,10 +66,10 @@ const AdminStaff = () => {
     <div className="bg-gray-50 min-h-screen">
       <PageBanner title="Administrative Staff" breadcrumb="Academics / Admin Staff" />
 
-      <div className="container mx-auto px-4 py-20 max-w-6xl">
-         <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-primary uppercase">SUPPORTING <span className="text-accent">PILLARS</span></h2>
-            <p className="text-gray-500 font-bold uppercase tracking-[0.2em] mt-2">The team behind smooth campus operations</p>
+      <div className="container mx-auto px-4 py-10 md:py-20 max-w-6xl">
+         <div className="text-center mb-8 md:mb-16">
+            <h2 className="text-2xl md:text-5xl font-black text-primary uppercase">SUPPORTING <span className="text-accent">PILLARS</span></h2>
+            <p className="text-gray-500 font-bold uppercase tracking-[0.2em] mt-2 text-xs md:text-sm">The team behind smooth campus operations</p>
          </div>
 
          {loading ? (

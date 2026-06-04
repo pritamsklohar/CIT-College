@@ -30,35 +30,35 @@ const OnlineAdmissionModal = () => {
             </button>
 
             <div className="flex flex-col md:flex-row">
-               <div className="md:w-1/2 bg-primary p-12 text-white flex flex-col justify-center">
-                  <h3 className="text-3xl font-black uppercase mb-4 leading-tight">Admissions <br /><span className="text-accent">Open 2024-25</span></h3>
-                  <p className="text-sm opacity-80 mb-8 font-semibold">Join the legacy of excellence in engineering. Register now to secure your future.</p>
-                  <div className="space-y-4">
-                     <div className="flex items-center gap-4 border-b border-white/10 pb-4">
-                        <span className="text-accent text-xl font-bold">109</span>
-                        <span className="text-[10px] font-black uppercase tracking-widest">BTU College Code</span>
+               <div className="md:w-1/2 bg-primary p-6 md:p-12 text-white flex flex-col justify-center">
+                  <h3 className="text-2xl md:text-3xl font-black uppercase mb-3 md:mb-4 leading-tight">Admissions <br /><span className="text-accent">Open 2024-25</span></h3>
+                  <p className="text-xs md:text-sm opacity-80 mb-6 md:mb-8 font-semibold">Join the legacy of excellence in engineering. Register now to secure your future.</p>
+                  <div className="space-y-3 md:space-y-4">
+                     <div className="flex items-center gap-4 border-b border-white/10 pb-3 md:pb-4">
+                        <span className="text-accent text-lg md:text-xl font-bold">109</span>
+                        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest">BTU College Code</span>
                      </div>
                      <div className="flex items-center gap-4">
-                        <span className="text-accent text-xl font-bold">086</span>
-                        <span className="text-[10px] font-black uppercase tracking-widest">RTU College Code</span>
+                        <span className="text-accent text-lg md:text-xl font-bold">086</span>
+                        <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest">RTU College Code</span>
                      </div>
                   </div>
                </div>
                
-               <div className="md:w-1/2 p-12 flex flex-col items-center justify-center text-center">
-                  <div className="w-24 h-24 bg-orange-50 rounded-full flex items-center justify-center text-accent text-4xl mb-6">
+               <div className="md:w-1/2 p-6 md:p-12 flex flex-col items-center justify-center text-center">
+                  <div className="w-16 h-16 md:w-24 md:h-24 bg-orange-50 rounded-full flex items-center justify-center text-accent text-2xl md:text-4xl mb-4 md:mb-6">
                      <FaExternalLinkAlt />
                   </div>
-                  <h4 className="text-xl font-bold text-primary mb-4 uppercase">Direct Online Admission</h4>
-                  <p className="text-gray-500 text-sm mb-8 font-bold leading-relaxed">Click below to fill the online application form and start your journey with CIT.</p>
+                  <h4 className="text-lg md:text-xl font-bold text-primary mb-2 md:mb-4 uppercase">Direct Online Admission</h4>
+                  <p className="text-gray-500 text-xs md:text-sm mb-6 md:mb-8 font-bold leading-relaxed">Click below to fill the online application form and start your journey with CIT.</p>
                   <a 
                     href="https://forms.gle/KT257DVQEjc5HBTh9" 
                     target="_blank"
-                    className="bg-accent text-white px-10 py-4 rounded-xl font-black uppercase tracking-widest hover:bg-primary transition shadow-xl"
+                    className="bg-accent text-white px-6 py-3 md:px-10 md:py-4 rounded-xl font-black uppercase tracking-widest hover:bg-primary transition shadow-xl text-xs md:text-base"
                   >
                      Apply Online Now
                   </a>
-                  <p className="mt-8 text-[10px] font-black text-gray-400 uppercase tracking-tighter">Approved by AICTE, New Delhi</p>
+                  <p className="mt-6 md:mt-8 text-[9px] md:text-[10px] font-black text-gray-400 uppercase tracking-tighter">Approved by AICTE, New Delhi</p>
                </div>
             </div>
           </motion.div>

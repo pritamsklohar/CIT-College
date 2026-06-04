@@ -27,16 +27,6 @@ const FloatingSidebar = () => {
         </motion.a>
       ))}
 
-      {/* Admin Login Circular Icon */}
-      <motion.a
-        href="/admin-login"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        className="mt-4 mr-4 bg-gray-800 text-white p-3 rounded-full shadow-2xl hover:bg-accent transition-colors flex items-center justify-center cursor-pointer"
-        title="Admin Login"
-      >
-        <FaUserShield className="text-xl" />
-      </motion.a>
     </div>
   );
 };

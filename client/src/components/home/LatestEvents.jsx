@@ -34,20 +34,20 @@ const LatestEvents = () => {
   }, { scope: sectionRef, dependencies: [events] });
 
   return (
-    <section ref={sectionRef} className="py-20 bg-white">
-      <div className="container mx-auto px-4 text-center mb-12">
+    <section ref={sectionRef} className="py-10 md:py-20 bg-white">
+      <div className="container mx-auto px-4 text-center mb-6 md:mb-12">
         <h4 className="text-accent font-bold uppercase tracking-widest mb-2 italic">CIT Events</h4>
-        <h2 className="text-3xl md:text-5xl font-black text-primary">LATEST <span className="text-accent">EVENTS</span></h2>
+        <h2 className="text-2xl md:text-5xl font-black text-primary">LATEST <span className="text-accent">EVENTS</span></h2>
         <div className="w-24 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
       </div>
 
-      <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
         {events.length > 0 ? events.map((event, index) => (
           <div
             key={event._id}
             className="event-card group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 will-change-transform"
           >
-            <div className="relative h-56 overflow-hidden">
+            <div className="relative h-48 sm:h-56 overflow-hidden">
               <img 
                 src={event.imageUrl || 'https://via.placeholder.com/400x300'} 
                 alt={event.title} 
@@ -57,7 +57,7 @@ const LatestEvents = () => {
                 {new Date(event.date).toLocaleDateString('en-IN', { day: '2-digit', month: 'short' })}
               </div>
             </div>
-            <div className="p-6 text-left">
+            <div className="p-4 md:p-6 text-left">
               <h3 className="font-bold text-lg text-primary mb-3 line-clamp-2 group-hover:text-accent transition-colors">
                 {event.title}
               </h3>

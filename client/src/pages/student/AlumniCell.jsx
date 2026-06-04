@@ -36,45 +36,45 @@ const AlumniCell = () => {
   return (
     <div className="animate-fade-in bg-gray-50 min-h-screen">
       {/* Page Header */}
-      <div className="bg-primary pt-32 pb-20 text-white relative overflow-hidden">
+      <div className="bg-primary pt-24 pb-12 md:pt-32 md:pb-20 text-white relative overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-20"
           style={{ backgroundImage: `url('${data.heroImageUrl || 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?q=80&w=2000&auto=format&fit=crop'}')` }}
         ></div>
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-black mb-4 uppercase tracking-widest text-white">
+          <h1 className="text-2xl md:text-5xl font-black mb-3 md:mb-4 uppercase tracking-widest text-white">
             {data.pageTitle.split(' ').map((word, i, arr) => 
               i === arr.length - 1 || i === arr.length - 2 ? <span key={i} className="text-accent">{word} </span> : <span key={i}>{word} </span>
             )}
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-medium">
+          <p className="text-sm md:text-xl text-gray-200 max-w-2xl mx-auto font-medium">
             {data.pageSubtitle}
           </p>
         </div>
       </div>
 
       {/* About Section */}
-      <section className="py-20">
+      <section className="py-10 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-black text-primary uppercase tracking-wider mb-6">
+          <div className="max-w-4xl mx-auto text-center mb-8 md:mb-16">
+            <h2 className="text-2xl md:text-3xl font-black text-primary uppercase tracking-wider mb-4 md:mb-6">
               {data.aboutTitle.split(' ').map((word, i, arr) => 
                 i === arr.length - 1 ? <span key={i} className="text-accent">{word}</span> : <span key={i}>{word} </span>
               )}
             </h2>
             {data.aboutContent.split('\n').map((paragraph, idx) => (
-              paragraph.trim() && <p key={idx} className="text-gray-600 text-lg leading-relaxed mb-6">{paragraph}</p>
+              paragraph.trim() && <p key={idx} className="text-gray-600 text-sm md:text-lg leading-relaxed mb-4 md:mb-6">{paragraph}</p>
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {data.objectives.map((obj, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-accent hover:-translate-y-2 transition-transform duration-300">
-                <div className="w-16 h-16 bg-orange-50 text-accent rounded-full flex items-center justify-center text-3xl mb-6 shadow-inner">
+              <div key={index} className="bg-white p-4 md:p-8 rounded-2xl shadow-lg border-b-4 border-accent hover:-translate-y-2 transition-transform duration-300">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-orange-50 text-accent rounded-full flex items-center justify-center text-xl md:text-3xl mb-4 md:mb-6 shadow-inner">
                   {renderIcon(obj.icon)}
                 </div>
-                <h3 className="text-xl font-bold text-primary mb-3">{obj.title}</h3>
-                <p className="text-gray-500 font-medium">{obj.desc}</p>
+                <h3 className="text-base md:text-xl font-bold text-primary mb-2 md:mb-3">{obj.title}</h3>
+                <p className="text-gray-500 font-medium text-xs md:text-sm">{obj.desc}</p>
               </div>
             ))}
           </div>

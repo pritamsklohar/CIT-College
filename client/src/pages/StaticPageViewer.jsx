@@ -32,11 +32,11 @@ const StaticPageViewer = () => {
   );
 
   return (
-    <div className="bg-white pb-20">
+    <div className="bg-white pb-10 md:pb-20">
       <PageBanner title={page.title} subtitle="Institutional Information" />
-      <div className="container mx-auto px-4 py-16">
+      <div className="container mx-auto px-4 py-8 md:py-16">
          <div 
-           className="prose prose-lg max-w-none prose-headings:text-primary prose-headings:font-black prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-accent prose-li:text-gray-600"
+           className="prose prose-sm md:prose-lg max-w-none prose-headings:text-primary prose-headings:font-black prose-p:text-gray-600 prose-p:leading-relaxed prose-strong:text-accent prose-li:text-gray-600"
            dangerouslySetInnerHTML={{ __html: page.content }}
          />
       </div>

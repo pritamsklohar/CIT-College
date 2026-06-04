@@ -12,6 +12,17 @@ const Navbar = () => {
   const [logo, setLogo] = useState('/logo-cit.png');
   const location = useLocation();
   const navRef = useRef();
+  const [activeMobileSubmenu, setActiveMobileSubmenu] = useState(null);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setActiveMobileSubmenu(null);
+    }
+  }, [isOpen]);
+
+  const toggleMobileSubmenu = (title) => {
+    setActiveMobileSubmenu(activeMobileSubmenu === title ? null : title);
+  };
 
   useGSAP(() => {
     gsap.from('.nav-item', {
@@ -131,30 +142,49 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`lg:hidden fixed inset-0 bg-white z-[60] transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`}>
+      <div className={`lg:hidden fixed inset-0 bg-white z-[60] transform ${isOpen ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-300 ease-in-out`} data-lenis-prevent>
         <div className="p-6 flex justify-between items-center border-b">
           <img src={logo} alt="Logo" className="h-12" />
           <button onClick={() => setIsOpen(false)} className="text-2xl text-primary"><FaTimes /></button>
         </div>
-        <div className="p-6 overflow-y-auto h-[calc(100vh-80px)]">
+        <div className="p-6 overflow-y-auto h-[calc(100vh-80px)]" data-lenis-prevent>
           {navLinks.map((link, i) => (
-            <div key={i} className="mb-4">
+            <div key={i} className="mb-3 border-b border-gray-50 pb-2 last:border-0 last:pb-0">
               {link.submenu ? (
                 <>
-                  <div className="font-bold text-primary text-lg mb-2 uppercase">{link.title}</div>
-                  <div className="pl-4 border-l-2 border-accent space-y-2">
+                  <button 
+                    onClick={() => toggleMobileSubmenu(link.title)} 
+                    className="flex justify-between items-center w-full font-extrabold text-primary text-base uppercase py-1.5 tracking-wide text-left hover:text-accent transition-colors duration-200"
+                  >
+                    <span>{link.title}</span>
+                    <FaChevronDown className={`text-xs text-accent transition-transform duration-300 ${activeMobileSubmenu === link.title ? 'rotate-180' : ''}`} />
+                  </button>
+                  <div className={`pl-4 border-l-2 border-accent mt-2 space-y-2.5 ${activeMobileSubmenu === link.title ? 'block' : 'hidden'}`}>
                     {link.submenu.map((sub, j) => (
-                      <Link key={j} to={sub.path} onClick={() => setIsOpen(false)} className="block py-1 text-gray-600">{sub.title}</Link>
+                      <Link 
+                        key={j} 
+                        to={sub.path} 
+                        onClick={() => setIsOpen(false)} 
+                        className={`block py-1 text-sm font-semibold transition-colors duration-200 ${location.pathname === sub.path ? 'text-accent' : 'text-gray-600 hover:text-accent'}`}
+                      >
+                        {sub.title}
+                      </Link>
                     ))}
                   </div>
                 </>
               ) : (
-                <Link to={link.path} onClick={() => setIsOpen(false)} className="block font-bold text-primary text-lg uppercase">{link.title}</Link>
+                <Link 
+                  to={link.path} 
+                  onClick={() => setIsOpen(false)} 
+                  className={`block font-extrabold text-base uppercase py-1.5 tracking-wide transition-colors duration-200 ${location.pathname === link.path ? 'text-accent' : 'text-primary hover:text-accent'}`}
+                >
+                  {link.title}
+                </Link>
               )}
             </div>
           ))}
-          <div className="mt-8 border-t pt-6">
-            <a href="https://forms.gle/KT257DVQEjc5HBTh9" target="_blank" className="block w-full text-center bg-accent text-white px-5 py-3 rounded-lg shadow-lg font-bold hover:bg-primary transition-all uppercase tracking-wide">
+          <div className="mt-6 border-t pt-6">
+            <a href="https://forms.gle/KT257DVQEjc5HBTh9" target="_blank" className="block w-full text-center bg-accent text-white px-5 py-3 rounded-lg shadow-lg font-bold hover:bg-primary transition-all uppercase tracking-wide text-sm">
               Online Admission
             </a>
           </div>

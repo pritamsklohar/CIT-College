@@ -26,15 +26,15 @@ const AlumniWall = () => {
   if (alumni.length === 0) return null;
 
   return (
-    <section className="py-20 bg-gray-50 relative overflow-hidden">
+    <section className="py-10 md:py-20 bg-gray-50 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full bg-primary/5 pattern-grid pointer-events-none"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-black text-primary uppercase tracking-wider mb-4">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl md:text-4xl font-black text-primary uppercase tracking-wider mb-2 md:mb-4">
             Our <span className="text-accent">Alumni Wall</span>
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto font-medium">
+          <p className="text-gray-600 max-w-2xl mx-auto font-medium text-sm md:text-base">
             Hear from our successful graduates who are making a global impact at top multinational corporations and institutions.
           </p>
         </div>
@@ -62,31 +62,31 @@ const AlumniWall = () => {
             className="alumni-swiper pb-16 pt-4"
           >
             {alumni.map((person, index) => (
-              <SwiperSlide key={`${person._id}-${index}`} className="max-w-[350px] md:max-w-[450px]">
-                <div className="bg-white rounded-2xl shadow-xl p-8 border-t-4 border-accent relative h-full flex flex-col justify-between">
-                  <FaQuoteLeft className="text-4xl text-gray-200 absolute top-6 right-6" />
+              <SwiperSlide key={`${person._id}-${index}`} className="max-w-[280px] md:max-w-[450px]">
+                <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8 border-t-4 border-accent relative h-full flex flex-col justify-between">
+                  <FaQuoteLeft className="text-2xl md:text-4xl text-gray-200 absolute top-4 right-4 md:top-6 md:right-6" />
                   
                   <div>
-                    <div className="flex gap-1 text-yellow-400 mb-6">
+                    <div className="flex gap-1 text-yellow-400 mb-3 md:mb-6">
                       {[...Array(person.rating || 5)].map((_, i) => (
-                        <FaStar key={i} className="text-sm" />
+                        <FaStar key={i} className="text-xs md:text-sm" />
                       ))}
                     </div>
                     
-                    <p className="text-gray-600 italic font-medium leading-relaxed mb-8 relative z-10">
+                    <p className="text-gray-600 italic font-medium leading-relaxed mb-4 md:mb-8 text-sm md:text-base relative z-10">
                       "{person.message}"
                     </p>
                   </div>
 
-                  <div className="flex items-center gap-4 mt-auto border-t pt-6">
+                  <div className="flex items-center gap-3 md:gap-4 mt-auto border-t pt-4 md:pt-6">
                     <img 
                       src={person.imageUrl} 
                       alt={person.name} 
-                      className="w-16 h-16 rounded-full object-cover border-2 border-primary p-0.5"
+                      className="w-12 h-12 md:w-16 md:h-16 rounded-full object-cover border-2 border-primary p-0.5"
                     />
                     <div>
-                      <h4 className="font-bold text-gray-800 text-lg leading-tight">{person.name}</h4>
-                      <p className="text-sm text-accent font-bold">{person.company}</p>
+                      <h4 className="font-bold text-gray-800 text-base md:text-lg leading-tight">{person.name}</h4>
+                      <p className="text-xs md:text-sm text-accent font-bold">{person.company}</p>
                       {person.batch && <p className="text-xs text-gray-400 font-semibold mt-0.5">Batch of {person.batch}</p>}
                     </div>
                   </div>
