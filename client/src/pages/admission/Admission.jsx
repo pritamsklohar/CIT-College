@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react';
 import API from '../../api/axios';
 import PageBanner from '../../components/common/PageBanner';
-import useSEO from '../../hooks/useSEO';
 
 const Admission = () => {
-  useSEO({
-    title: 'Admissions 2026-27',
-    description: 'Find engineering admission details at Chartered Institute of Technology, Abu Road. Check prospectus, seats matrix, fees structure, and eligibility rules.',
-    keywords: 'CIT Abu Road admissions, engineering seats matrix, B.Tech courses Rajasthan, how to apply CIT'
-  });
    const [data, setData] = useState({
      content: '',
      seatMatrix: [],

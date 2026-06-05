@@ -4,19 +4,12 @@ import API from '../../../api/axios';
 import PageBanner from '../../../components/common/PageBanner';
 import { motion } from 'framer-motion';
 import { FaMicroscope, FaLightbulb, FaUserTie, FaCheckCircle } from 'react-icons/fa';
-import useSEO from '../../../hooks/useSEO';
 
 const DepartmentPage = () => {
   const { slug } = useParams();
   const [dept, setDept] = useState(null);
   const [faculty, setFaculty] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  useSEO({
-    title: dept ? `${dept.name}` : 'Academics Department',
-    description: dept ? `Explore the Department of ${dept.name} at Chartered Institute of Technology, Abu Road. Learn about labs, faculty members, and academic curriculum.` : 'Explore academic departments at CIT Abu Road.',
-    keywords: dept ? `${dept.name} engineering, CIT Abu Road departments, ${dept.name} labs faculty` : 'CIT engineering departments, B.Tech courses Rajasthan'
-  });
 
   useEffect(() => {
     const fetchData = async () => {

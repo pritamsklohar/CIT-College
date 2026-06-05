@@ -2,14 +2,8 @@ import { useState } from 'react';
 import API from '../../api/axios';
 import { FaPaperPlane, FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import toast from 'react-hot-toast';
-import useSEO from '../../hooks/useSEO';
 
 const Contact = () => {
-  useSEO({
-    title: 'Contact Us',
-    description: 'Get in touch with Chartered Institute of Technology, Abu Road. Find location map, contact numbers, email addresses, and general helpline information.',
-    keywords: 'contact CIT, CIT college phone number, CIT location map, engineering college address'
-  });
   const [formData, setFormData] = useState({
     fullName: '', phone: '', email: '', subject: '', message: ''
   });
