@@ -2,8 +2,14 @@ import { useState, useEffect } from 'react';
 import API from '../../api/axios';
 import PageBanner from '../../components/common/PageBanner';
 import { motion } from 'framer-motion';
+import useSEO from '../../hooks/useSEO';
 
 const ChairmanMessage = () => {
+  useSEO({
+    title: "Chairman's Message",
+    description: "Read the message from Mr. Kishore Gandhi, the Chairman of Chartered Institute of Technology, Abu Road, welcoming students to a world of technical excellence.",
+    keywords: "Kishore Gandhi Chairman, CIT Abu Road message, chairman address engineering, CIT leadership"
+  });
    const [content, setContent] = useState('');
    const [imageUrl, setImageUrl] = useState('');
 

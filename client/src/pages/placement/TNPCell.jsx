@@ -4,8 +4,14 @@ import PageBanner from '../../components/common/PageBanner';
 import { motion } from 'framer-motion';
 import { FaTrophy, FaChartLine, FaUserGraduate, FaHandshake, FaBullseye, FaLightbulb, FaCheckCircle, FaBuilding, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import useSEO from '../../hooks/useSEO';
 
 const TNPCell = () => {
+  useSEO({
+    title: 'Training & Placement Cell',
+    description: 'Learn about the Training & Placement Cell at Chartered Institute of Technology, Abu Road. Check campus placement records, statistics, recruiters, and placement policy.',
+    keywords: 'CIT placement cell, engineering placement Abu Road, campus recruitments Rajasthan, highest package CIT'
+  });
   const [recruiters, setRecruiters] = useState([]);
   const [stats, setStats] = useState([
     { label: 'Highest Package', value: '18 LPA', icon: <FaTrophy /> },

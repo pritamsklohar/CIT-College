@@ -2,8 +2,14 @@ import { useState, useEffect } from 'react';
 import API from '../../api/axios';
 import PageBanner from '../../components/common/PageBanner';
 import { motion } from 'framer-motion';
+import useSEO from '../../hooks/useSEO';
 
 const VisionMission = () => {
+  useSEO({
+    title: 'Vision & Mission',
+    description: 'Learn about the vision, mission, and core values of Chartered Institute of Technology, Abu Road. We aim to produce competent and ethical engineers.',
+    keywords: 'CIT vision mission, engineering core values, ethical engineering education, CIT Abu Road'
+  });
   const [content, setContent] = useState(null);
 
   useEffect(() => {

@@ -2,8 +2,14 @@ import { useState, useEffect } from 'react';
 import API from '../../api/axios';
 import PageBanner from '../../components/common/PageBanner';
 import { motion } from 'framer-motion';
+import useSEO from '../../hooks/useSEO';
 
 const PrincipalProfile = () => {
+  useSEO({
+    title: "Principal's Profile",
+    description: "Read the profile and message of the Principal of Chartered Institute of Technology, Abu Road, welcoming you to CIT's academic community.",
+    keywords: "Principal CIT Abu Road, engineering college principal, academic community CIT, principal message"
+  });
    const [content, setContent] = useState('');
    const [imageUrl, setImageUrl] = useState('');
 

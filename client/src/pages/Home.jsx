@@ -5,8 +5,14 @@ import NoticeBoard from '../components/home/NoticeBoard';
 import AlumniWall from '../components/home/AlumniWall';
 import LatestEvents from '../components/home/LatestEvents';
 import Recruiters from '../components/home/Recruiters';
+import useSEO from '../hooks/useSEO';
 
 const Home = () => {
+  useSEO({
+    title: 'Home',
+    description: 'Welcome to Chartered Institute of Technology (CIT), Abu Road, Rajasthan. A premier engineering college affiliated with BTU and approved by AICTE. Apply online for admissions now!',
+    keywords: 'CIT Abu Road, Chartered Institute of Technology, best engineering college Rajasthan, B.Tech admissions 2026, computer science B.Tech Abu Road'
+  });
   return (
     <div className="animate-fade-in">
       <HeroSlider />

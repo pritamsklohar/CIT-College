@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cit-college.onrender.com/sitemap.xml
