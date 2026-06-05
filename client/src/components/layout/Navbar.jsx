@@ -96,14 +96,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav ref={navRef} className={`sticky top-0 z-50 bg-white transition-all duration-300 ${isSticky ? 'shadow-lg py-2' : 'py-4'}`}>
+    <nav ref={navRef} className={`sticky top-0 z-50 bg-white transition-all duration-300 ${isSticky ? 'shadow-lg py-1.5' : 'py-3 md:py-4'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <Link to="/" className="flex items-center nav-item">
-          <img src={logo} alt="CIT Logo" className="h-12 md:h-16 mr-3" />
+          <img src={logo} alt="CIT Logo" className="h-9 lg:h-12 xl:h-16 mr-3 object-contain py-0.5" />
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-6 font-bold text-gray-700 text-sm xl:text-base">
+        <div className="hidden lg:flex flex-nowrap items-center gap-3 xl:gap-5 font-bold text-gray-700 text-[12px] xl:text-[14px] 2xl:text-base whitespace-nowrap">
           {navLinks.map((link, i) => (
             <div key={i} className="relative group nav-item">
               {link.submenu ? (
@@ -130,7 +130,7 @@ const Navbar = () => {
               )}
             </div>
           ))}
-          <a href="https://forms.gle/KT257DVQEjc5HBTh9" target="_blank" className="nav-item bg-accent text-white px-5 py-2.5 rounded shadow-lg font-bold hover:bg-primary transition-all duration-300 scale-95 hover:scale-100 uppercase text-xs xl:text-sm">
+          <a href="https://forms.gle/KT257DVQEjc5HBTh9" target="_blank" className="nav-item bg-accent text-white px-3 py-2 xl:px-5 xl:py-2.5 rounded shadow-lg font-bold hover:bg-primary transition-all duration-300 scale-95 hover:scale-100 uppercase text-[11px] xl:text-xs 2xl:text-sm">
             Online Admission
           </a>
         </div>

@@ -59,76 +59,86 @@ import ManageTNPCell from './pages/admin/ManageTNPCell';
 import ManageAdmission from './pages/admin/ManageAdmission';
 import StaticPageViewer from './pages/StaticPageViewer';
 import NotFound from './pages/NotFound';
+import Preloader from './components/common/Preloader';
+import { useState } from 'react';
 
 function App() {
+  const [showPreloader, setShowPreloader] = useState(() => {
+    return !window.location.pathname.includes('/admin');
+  });
+
   return (
     <AuthProvider>
-      <Router>
-        <Toaster position="top-right" />
-        <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<MainLayout />}>
-            <Route index element={<Home />} />
-            <Route path="about/institute" element={<Institute />} />
-            <Route path="about/vision-mission" element={<VisionMission />} />
-            <Route path="about/chairman-message" element={<ChairmanMessage />} />
-            <Route path="about/board-of-management" element={<BoardOfManagement />} />
-            <Route path="about/mandatory-disclosure" element={<MandatoryDisclosure />} />
-            <Route path="about/location" element={<Location />} />
-            <Route path="academics/faculty-profile" element={<FacultyProfile />} />
-            <Route path="academics/principal-profile" element={<PrincipalProfile />} />
-            <Route path="academics/admin-staff" element={<AdminStaff />} />
-            <Route path="academics/departments/:slug" element={<DepartmentPage />} />
-            <Route path="academics/calendar" element={<AcademicCalendar />} />
-            <Route path="academics/recognition" element={<Recognition />} />
-            <Route path="academics/scheme-syllabus" element={<SchemeSyllabus />} />
-            <Route path="admission" element={<Admission />} />
-            <Route path="scholarship" element={<Scholarship />} />
-            <Route path="placement/tnp-cell" element={<TNPCell />} />
-            <Route path="placement/crt" element={<CRTProgram />} />
-            <Route path="student/achievements" element={<StudentAchievements />} />
-            <Route path="student/alumni" element={<AlumniCell />} />
-            <Route path="student/duplicate-certificate" element={<DuplicateCertificate />} />
-            <Route path="student/migration-certificate" element={<MigrationCertificate />} />
-            <Route path="student/name-correction" element={<NameCorrection />} />
-            <Route path="student/ncc" element={<NCC />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="gallery" element={<Gallery />} />
-            <Route path="page/:slug" element={<StaticPageViewer />} />
-          </Route>
+      {showPreloader ? (
+        <Preloader onComplete={() => setShowPreloader(false)} />
+      ) : (
+        <Router>
+          <Toaster position="top-right" />
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Home />} />
+              <Route path="about/institute" element={<Institute />} />
+              <Route path="about/vision-mission" element={<VisionMission />} />
+              <Route path="about/chairman-message" element={<ChairmanMessage />} />
+              <Route path="about/board-of-management" element={<BoardOfManagement />} />
+              <Route path="about/mandatory-disclosure" element={<MandatoryDisclosure />} />
+              <Route path="about/location" element={<Location />} />
+              <Route path="academics/faculty-profile" element={<FacultyProfile />} />
+              <Route path="academics/principal-profile" element={<PrincipalProfile />} />
+              <Route path="academics/admin-staff" element={<AdminStaff />} />
+              <Route path="academics/departments/:slug" element={<DepartmentPage />} />
+              <Route path="academics/calendar" element={<AcademicCalendar />} />
+              <Route path="academics/recognition" element={<Recognition />} />
+              <Route path="academics/scheme-syllabus" element={<SchemeSyllabus />} />
+              <Route path="admission" element={<Admission />} />
+              <Route path="scholarship" element={<Scholarship />} />
+              <Route path="placement/tnp-cell" element={<TNPCell />} />
+              <Route path="placement/crt" element={<CRTProgram />} />
+              <Route path="student/achievements" element={<StudentAchievements />} />
+              <Route path="student/alumni" element={<AlumniCell />} />
+              <Route path="student/duplicate-certificate" element={<DuplicateCertificate />} />
+              <Route path="student/migration-certificate" element={<MigrationCertificate />} />
+              <Route path="student/name-correction" element={<NameCorrection />} />
+              <Route path="student/ncc" element={<NCC />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="gallery" element={<Gallery />} />
+              <Route path="page/:slug" element={<StaticPageViewer />} />
+            </Route>
 
-          {/* Admin Routes */}
-          <Route path="/admin-login" element={<AdminLogin />} />
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Dashboard />} />
-            <Route path="dashboard" element={<Dashboard />} />
-            <Route path="hero" element={<ManageHero />} />
-            <Route path="notices" element={<ManageNotices />} />
-            <Route path="faculty" element={<ManageFaculty />} />
-            <Route path="admin-staff" element={<ManageAdminStaff />} />
-            <Route path="recognitions" element={<ManageRecognitions />} />
-            <Route path="syllabus" element={<ManageSyllabus />} />
-            <Route path="academic-calendar" element={<ManageAcademicCalendar />} />
-            <Route path="gallery" element={<ManageGallery />} />
-            <Route path="events" element={<ManageEvents />} />
-            <Route path="recruiters" element={<ManageRecruiters />} />
-            <Route path="departments" element={<ManageDepartments />} />
-            <Route path="board-members" element={<ManageBoardMembers />} />
-            <Route path="testimonials" element={<ManageTestimonials />} />
-            <Route path="enquiries" element={<ViewEnquiries />} />
-            <Route path="static-pages/:slug" element={<ManageStaticPages />} />
-            <Route path="achievements" element={<ManageAchievements />} />
-            <Route path="alumni-page" element={<ManageAlumniPage />} />
-            <Route path="scholarship-page" element={<ManageScholarshipPage />} />
-            <Route path="service-pages" element={<ManageProceduralPages />} />
-            <Route path="admission-page" element={<ManageAdmission />} />
-            <Route path="settings" element={<SiteSettings />} />
-            <Route path="tnp-cell" element={<ManageTNPCell />} />
-          </Route>
+            {/* Admin Routes */}
+            <Route path="/admin-login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="hero" element={<ManageHero />} />
+              <Route path="notices" element={<ManageNotices />} />
+              <Route path="faculty" element={<ManageFaculty />} />
+              <Route path="admin-staff" element={<ManageAdminStaff />} />
+              <Route path="recognitions" element={<ManageRecognitions />} />
+              <Route path="syllabus" element={<ManageSyllabus />} />
+              <Route path="academic-calendar" element={<ManageAcademicCalendar />} />
+              <Route path="gallery" element={<ManageGallery />} />
+              <Route path="events" element={<ManageEvents />} />
+              <Route path="recruiters" element={<ManageRecruiters />} />
+              <Route path="departments" element={<ManageDepartments />} />
+              <Route path="board-members" element={<ManageBoardMembers />} />
+              <Route path="testimonials" element={<ManageTestimonials />} />
+              <Route path="enquiries" element={<ViewEnquiries />} />
+              <Route path="static-pages/:slug" element={<ManageStaticPages />} />
+              <Route path="achievements" element={<ManageAchievements />} />
+              <Route path="alumni-page" element={<ManageAlumniPage />} />
+              <Route path="scholarship-page" element={<ManageScholarshipPage />} />
+              <Route path="service-pages" element={<ManageProceduralPages />} />
+              <Route path="admission-page" element={<ManageAdmission />} />
+              <Route path="settings" element={<SiteSettings />} />
+              <Route path="tnp-cell" element={<ManageTNPCell />} />
+            </Route>
 
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+      )}
     </AuthProvider>
   );
 }
